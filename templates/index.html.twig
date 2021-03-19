@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="templates/css/style.css">
+    <script src="templates/js/script.js"></script>
+
+    <title>Paramanalyser</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- ヘッダメッセージ -->
+        <h2>Welcome to ParamAnalyser!</h2>
+        <p>
+            your request status was saved at:
+            <a href="{{ savedPath }}">{{ savedPath }}</a>
+        </p>
+        <hr>
+
+        <!-- 過去ログ -->
+        <div id="logs">
+            <h2>Recent requests list:</h2>
+            {% for log in logs %}
+            <div class="cell">
+                <details data-path="{{ log }}">
+                    <summary>{{ log }}</summary>
+                    <pre><code>Loading...</code></pre>
+                </details>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
